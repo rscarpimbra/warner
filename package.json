@@ -1,0 +1,31 @@
+{
+  "name": "warner",
+  "version": "1.0.0",
+  "description": "# Composer Examples     composer require slim/flash --ignore-platform-reqs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack & node-sass --source-map true --output-style compressed scss -o public/assets/css --progress --watch",
+    "build:tailwind": "tailwindcss -i  input.css -o public/assets/styles/styles.css --watch",
+    "dev-server":"concurrently \"npm run dev\" \"npm run build:tailwind\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.19.4",
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.12",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^7.5.0",
+    "idempotent-babel-polyfill": "^7.4.4",
+    "node-sass": "^7.0.3",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

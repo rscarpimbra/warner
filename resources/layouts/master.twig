@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include('head.twig') %}
+    </head>
+    <body>
+    
+        {% set vGBImgLogo = '/assets/images/warne-smr.png '%}
+
+        {% include('header.twig') %}
+
+
+        {# Checking if the User is Logged, show Left Sidebar. #}
+        {% if (FCheckIsLoged() == 'true') and (GGroup == 'panel') %}
+
+            {% include ('leftNavbar.twig') %}
+        {% endif %}
+
+        <div class="col py-3">
+            {% block content %}{% endblock %}
+        </div>
+            
+    
+        {% include('footer.twig') %}
+    </body>
+</html>

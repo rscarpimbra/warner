@@ -1,0 +1,68 @@
+
+<div class="bg-gray-900">
+
+    <div class="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
+        <p class="flex-1 text-center text-sm font-medium text-white lg:flex-none">Welcome to {{ appName }}</p>
+
+        <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+
+            {# Checking if the User is Logged, show Left Sidebar. #}
+            {% if (FCheckIsLoged() == 'true') %}
+
+                <span class="h-6 w-px bg-gray-600" aria-hidden="true"></span>
+                <a href="{{ url_for('login.signout') }}" class="text-sm font-medium text-white hover:text-gray-100">Sign out</a>
+            {% else %}
+
+                <a href="/registration" class="text-sm font-medium text-white hover:text-gray-100">Create an account</a>
+                <span class="h-6 w-px bg-gray-600" aria-hidden="true"></span>
+                <a href="/login" class="text-sm font-medium text-white hover:text-gray-100">Sign in</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+<div x-data="{ isOpen: false }" class="flex justify-between p-4 bg-white-600 lg:p-8">
+
+    <div class="flex items-center">
+        <img class="h-8 w-auto" src="{{ vGBImgLogo }}" alt="">
+    </div>
+
+    <!-- left header section -->
+    <div class="flex items-center justify-between">
+        <button @click="isOpen = !isOpen" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <div class="hidden space-x-6 lg:inline-block">
+            <a href="/" class="text-sm font-medium text-gray-700 hover:text-gray-800">Home</a>
+            <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Menu1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Menu2</a>
+            <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Menu3</a>
+            <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Menu3</a>
+        </div>
+
+        <!-- mobile navbar -->
+        <div class="mobile-navbar">
+            <!-- navbar wrapper -->
+            <div class="fixed left-0 w-full h-48 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
+                 @click.away=" isOpen = false">
+                <div class="flex flex-col space-y-6">
+                    <a href="/" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Home</a>
+                    <a href="#" class="text-sm text-black">Menu1</a>
+                    <a href="#" class="text-sm text-black">Menu2</a>
+                    <a href="#" class="text-sm text-black">Menu3</a>
+                    <a href="#" class="text-sm text-black">Menu3</a>
+                </div>
+            </div>
+        </div>
+        <!-- end mobile navbar -->
+    </div>
+    <!-- right header section -->
+
+</div>

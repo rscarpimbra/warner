@@ -1,0 +1,22 @@
+
+.frmLogin {
+   
+    .form-label, .form-check-label {
+        font-size: 14px;
+        color: #728188;
+        font-weight: 700;
+    }
+
+    .form-floating {
+        span {
+            &.helper-text {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .img-war {
+        height: 140px;
+        width: 240px;
+    }
+}

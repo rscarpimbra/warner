@@ -1,0 +1,27 @@
+
+
+<footer></footer>
+
+<!-- JQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+{# Check if the user is Logged. #}
+{% if (FCheckIsLoged() == 'true') and (GGroup == 'panel') %}
+
+    <script defer type="module" crossorigin="use-credentials" src="/assets/scripts/bundle/_navBarLeft_bundle.js"></script>
+{% endif %}
+
+{# Checking for Registration Form #}
+{% if (GPageName == 'FRegistration') %}
+
+    <script defer type="module" crossorigin="use-credentials" src="/assets/scripts/bundle/_page_registration_bundle.js"></script>    
+{% endif %}
+
+
+
+<script defer type="module" crossorigin="use-credentials" src="/assets/scripts/bundle/_page_index_bundle.js"></script>

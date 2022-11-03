@@ -1,0 +1,80 @@
+{% extends 'master.twig' %}
+
+{% set GPageName = 'FRegistration' %}
+
+{% block content %}
+
+    <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <img class="mx-auto h-12 w-auto" src="{{ vGBImgLogo }}" alt="Your Company">
+            <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Register a new User</h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+            
+            </p>
+        </div>
+
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <form class="space-y-6" id="FrmRegister" action="{{ url_for('registration.create') }}" method="POST">
+
+                    {{ csrf() | raw}}
+                    <div>
+                        <label class="block">
+                            <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                Enter a Username or Email address
+                            </span>
+                            <input 
+                                type="email" 
+                                id="txtUserName" 
+                                name="user_name" 
+                                value="{{old.user_name }}"
+                                class="required mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" 
+                                placeholder="you@example.com" 
+                                autofocus />
+                                <span class="text-sm font-small text-red-500">{{ errors.user_name | first }} {{ ErrorUserName }} {{ ErrorUserExists }}</span>
+                        </label>        
+                    </div>
+
+                    <div>
+                        <label class="block">
+                            <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                Password
+                            </span>
+                            <input 
+                                type="password" 
+                                class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" 
+                                placeholder="you@example.com" 
+                                autofocus />
+                                <span class="text-sm font-small text-red-500"></span>
+                        </label>        
+                    </div>                
+
+
+                    <div>
+                        <label class="block">
+                            <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                                Re Enter the Password
+                            </span>
+                            <input 
+                                type="password" 
+                                id="txtUserPassword" 
+                                name="user_password" 
+                                class="required mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" 
+                                placeholder="you@example.com" 
+                                autofocus />
+                                <span class="text-sm font-small text-red-500">{{ errors.user_password | first }} {{ ErrorPassword }} </span>
+                        </label>        
+                    </div>
+
+
+                    <div class="flex items-center justify-between">
+                        
+                        <button type="submit" id="btn-register" class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
