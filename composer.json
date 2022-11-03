@@ -1,6 +1,6 @@
 {
-    "name": "codecourse/slender",
-    "description": "A slender starter structure for Slim",
+    "name": "warner/academy",
+    "description": "A student portal",
     "keywords": ["framework", "slim", "codecourse"],
     "license": "MIT",
     "type": "project",
